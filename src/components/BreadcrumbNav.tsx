@@ -1,4 +1,3 @@
-import React from "react";
 import { GrPrevious } from "react-icons/gr";
 import { Link } from "react-router-dom";
 

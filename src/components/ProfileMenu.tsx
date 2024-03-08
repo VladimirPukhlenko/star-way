@@ -1,4 +1,3 @@
-import React from "react";
 import { MdOutlineShoppingBag, MdFavoriteBorder } from "react-icons/md";
 import { IoMdHelpBuoy } from "react-icons/io";
 import { AiOutlineSetting } from "react-icons/ai";
