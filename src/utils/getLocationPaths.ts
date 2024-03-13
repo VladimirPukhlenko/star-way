@@ -3,6 +3,6 @@ export const getLocationPaths = (pathname: string) => {
   return locationArr.map((locData) => ({
     title: locData[0].toUpperCase() + locData.slice(1),
     path: locData,
-    isActive: locData === locationArr.at(-1),
+    isActive: locData === locationArr[locationArr.length - 1],
   }));
 };

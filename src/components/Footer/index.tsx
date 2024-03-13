@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { FOOTER_LINKS } from "./constanst";
+import { FOOTER_LINKS } from "./constants";
 import { Logo } from "../Logo";
 
 export const Footer = () => (
