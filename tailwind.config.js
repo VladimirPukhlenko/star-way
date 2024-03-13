@@ -3,10 +3,15 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      height: {
+        headerHeight: "72px",
+        footerHeight: "126px",
+      },
       colors: {
         darkBlue: "#0D3450",
         lightBlue: "#2177B31A",
         myGray: "#eaeaea",
+        gold: "#E6C83C",
       },
       fontFamily: {
         Dancing: ["Raleway", "cursive"],

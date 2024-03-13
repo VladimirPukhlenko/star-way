@@ -1,42 +1,41 @@
-import { useFormik } from "formik";
 import { useState } from "react";
+import { validationSchema } from "../components/Profile/ProfileForm/schema";
 import * as Yup from "yup";
+import { FormikHelpers } from "formik";
 
-const useProfileForm = () => {
+type Values = Yup.InferType<typeof validationSchema>;
+
+export const useProfileForm = () => {
   const [file, setFile] = useState<File | null>(null);
 
-  const formik = useFormik({
-    initialValues: {
-      fullName: "",
-      phone: "",
-      email: "",
-    },
-    validationSchema: Yup.object({
-      fullName: Yup.string().required("Full name is required"),
-      phone: Yup.string().required("Phone is required"),
-      email: Yup.string().required("Email is required"),
-    }),
-
-    onSubmit: (values) => {
-      console.log(values);
-      console.log(file?.name);
-
-      formik.setStatus({
-        message: "Form submitted successfully (data in console)",
-      });
-      setTimeout(() => {
-        formik.resetForm();
-        setFile(null);
-      }, 3000);
-    },
-  });
+  const [isSubmittedSuccessfully, setIsSubmittedSuccessfully] = useState(false);
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.currentTarget.files && event.currentTarget.files[0];
     setFile(file);
   };
+  const onSubmit = (values: Values, actions: FormikHelpers<Values>) => {
+    console.log(values);
+    console.log(file?.name);
 
-  return { formik, file, handleFileChange };
+    setIsSubmittedSuccessfully(true);
+    setTimeout(() => setIsSubmittedSuccessfully(false), 3000);
+
+    actions.resetForm();
+  };
+
+  const initialValues = {
+    fullName: "",
+    phone: "",
+    email: "",
+  };
+
+  return {
+    file,
+    handleFileChange,
+    onSubmit,
+    initialValues,
+    isSubmittedSuccessfully,
+    setIsSubmittedSuccessfully,
+  };
 };
-
-export default useProfileForm;

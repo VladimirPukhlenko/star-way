@@ -1,13 +1,11 @@
-import Categories from "../components/Categories";
-import Banners from "../components/Banners";
-import { OfferList } from "../components/OfferList";
+import { Banners } from "../components/Banners";
+import { Categories } from "../components/Categories";
+import { OfferList } from "../components/Offers/OfferList";
 
-export const Home = () => {
-  return (
-    <div className="container py-10 flex flex-col gap-8">
-      <Categories />
-      <Banners />
-      <OfferList />
-    </div>
-  );
-};
+export const Home = () => (
+  <div className="container flex flex-col gap-8 py-10">
+    <Categories />
+    <Banners />
+    <OfferList />
+  </div>
+);

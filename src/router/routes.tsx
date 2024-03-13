@@ -1,21 +1,17 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
-import Profile from "../pages/Profile";
-import App from "../App";
-import ProfileForm from "../components/ProfileForm";
 import { Home } from "../pages/Home";
+import { Profile } from "../pages/Profile";
+import { Layout } from "../Layout";
+import { ProfileForm } from "../components/Profile/ProfileForm";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Navigate to="home" replace={true} />,
-  },
-  {
     path: "",
-    element: <App />,
+    element: <Layout />,
     children: [
       {
-        path: "home",
+        path: "",
         element: <Home />,
       },
       {
