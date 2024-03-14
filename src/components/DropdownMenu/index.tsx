@@ -9,6 +9,7 @@ import {
 } from "../../types/categories.interface";
 import { CategoryList } from "./CategoryList";
 import { Button } from "../ui/Button";
+const SCROLL_THRESHOLD = 150;
 
 export const DropdownMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -25,7 +26,7 @@ export const DropdownMenu: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 150) {
+      if (window.scrollY > SCROLL_THRESHOLD) {
         setIsOpen(false);
         setDefaultValues();
       }
@@ -80,7 +81,7 @@ export const DropdownMenu: React.FC = () => {
             }}
           >
             <div className="container p-12">
-              <div className="flex font-semibold">
+              <div className="flex flex-col md:flex-row gap-4 md:gap-0 font-semibold">
                 <CategoryList<MainCategory>
                   categories={DROPDOWN_MENU_MAIN_CATEGORIES}
                   activeCategory={activeMainCategory}

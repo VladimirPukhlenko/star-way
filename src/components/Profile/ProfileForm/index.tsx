@@ -17,59 +17,57 @@ export const ProfileForm = () => {
   } = useProfileForm();
 
   return (
-    <div className="flex-1">
-      <Formik
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        validationSchema={validationSchema}
-      >
-        {/* ({touched,errors})=> ...*/}
-        {() => (
-          <Form className="flex flex-col gap-8">
-            <h1 className="text-3xl font-bold">Profile</h1>
-            <div className="flex flex-col gap-4">
+    <Formik
+      initialValues={initialValues}
+      onSubmit={onSubmit}
+      validationSchema={validationSchema}
+    >
+      {/* ({touched,errors})=> ...*/}
+      {() => (
+        <Form className="flex flex-col gap-4 md:gap-8">
+          <h1 className="text-xl md:text-3xl font-bold">Profile</h1>
+          <div className="flex flex-col gap-4">
+            {FIELDS.map((field) => (
+              <Field
+                key={field.id}
+                label={field.label}
+                name={field.name}
+                type={field.type}
+                id={field.id}
+                as={Input}
+              />
+            ))}
+            <FileInput handleFileChange={handleFileChange} file={file} />
+          </div>
+
+          <div className="flex justify-between items-center">
+            <Button type="submit" colorType="primary">
+              Save Changes
+            </Button>
+            <div className="flex flex-col md:flex-row justify-center items-center md:gap-4 text-xxs md:text-sm font-semibold text-red-500 ">
+              {/* this  */}
               {FIELDS.map((field) => (
-                <Field
-                  key={field.id}
-                  label={field.label}
+                <ErrorMessage
                   name={field.name}
-                  type={field.type}
-                  id={field.id}
-                  as={Input}
+                  component="div"
+                  key={field.id}
                 />
               ))}
-              <FileInput handleFileChange={handleFileChange} file={file} />
-            </div>
 
-            <div className="flex justify-between">
-              <Button type="submit" colorType="primary">
-                Save Changes
-              </Button>
-              <div className="flex justify-center items-center gap-4 text-sm font-semibold text-red-500 ">
-                {/* this  */}
-                {FIELDS.map((field) => (
-                  <ErrorMessage
-                    name={field.name}
-                    component="div"
-                    key={field.id}
-                  />
-                ))}
+              {/* OR this */}
 
-                {/* OR this */}
-
-                {/*  {(touched.fullName && errors.fullName) ||
+              {/*  {(touched.fullName && errors.fullName) ||
                   (touched.phone && errors.phone) ||
                   (touched.email && errors.email)} */}
 
-                <div className=" text-green-500">
-                  {isSubmittedSuccessfully &&
-                    "Form has been successfully submitted"}
-                </div>
+              <div className=" text-green-500">
+                {isSubmittedSuccessfully &&
+                  "Form has been successfully submitted"}
               </div>
             </div>
-          </Form>
-        )}
-      </Formik>
-    </div>
+          </div>
+        </Form>
+      )}
+    </Formik>
   );
 };

@@ -27,7 +27,9 @@ export const OfferList = () => {
       {loading && <Loader />}
       {error && <div className="text-xl text-center p-10">{error}</div>}
       <div
-        className={`grid ${isRow ? "grid-cols-3" : "grid-cols-1"} gap-2 py-4`}
+        className={`grid ${
+          isRow ? "grid-cols-1 sm:grid-cols-2 md:grid-cols-3" : "grid-cols-1"
+        } gap-2 py-4`}
       >
         {offers.map((offer) => (
           <OfferItem {...offer} isRow={isRow} key={offer.id} />

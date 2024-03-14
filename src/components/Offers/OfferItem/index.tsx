@@ -20,22 +20,22 @@ export const OfferItem: FC<Props> = (props) => {
       to={"#"}
       className={`flex ${
         isRow ? "flex-col" : "flex-row justify-center items-center"
-      } border border-myGray rounded-md overflow-hidden`}
+      } border border-myGray rounded-md overflow-hidden text-xs sm:text-sm`}
     >
       {/* image */}
       <div className="relative">
         <img src={"/3.png"} alt={"desc"} />
-        <div className="absolute top-2 left-2 text-xs px-2 py-1 font-medium bg-white rounded-md">
+        <div className="absolute top-2 left-2 text-xxs px-1 py-[2px] font-medium bg-white rounded-md">
           TOP
         </div>
       </div>
 
       {/* info */}
-      <div className="flex flex-col gap-1 flex-1 p-4">
+      <div className="flex flex-col gap-1 flex-1 p-1 sm:p-4">
         <div className="flex justify-between items-center">
           <div>{category.title}</div>
-          <div className="text-myGray flex justify-center items-center gap-1 cursor-pointer">
-            {...new Array(5).fill(<FaStar size={15} />)}
+          <div className="text-myGray  sm:text-base flex justify-center items-center gap-1 cursor-pointer ">
+            {...new Array(5).fill(<FaStar />)}
           </div>
         </div>
         <h3 className="font-bold">{title}</h3>
@@ -45,19 +45,22 @@ export const OfferItem: FC<Props> = (props) => {
             "(Api description is empty so i add some lorem) Lorem ipsum dolor sit amet consectetur adipisicing elit."}
         </p>
 
-        <div className="flex justify-between items-center">
-          <div>
+        <div className="flex justify-between items-center text-xs">
+          <div className="flex flex-wrap gap-1">
             {tags.map((tag, i) => (
               <span
                 key={i}
-                className="text-sm text-black px-1 py-[2px] bg-myGray rounded-md"
+                className="text-xxs px-1 py-[2px] bg-myGray text-center rounded-md"
               >
                 {tag}
               </span>
             ))}
           </div>
-          <div className="cursor-pointer" onClick={toggleLike}>
-            {isLiked ? <FaHeart size={20} /> : <FaRegHeart size={20} />}
+          <div
+            className="cursor-pointer text-sm sm:text-base"
+            onClick={toggleLike}
+          >
+            {isLiked ? <FaHeart /> : <FaRegHeart />}
           </div>
         </div>
       </div>

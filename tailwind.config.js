@@ -3,6 +3,12 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        xxs: "0.6rem",
+      },
+      minHeight: {
+        screenNoHeader: "calc(100vh - 72px)",
+      },
       height: {
         headerHeight: "72px",
         footerHeight: "126px",

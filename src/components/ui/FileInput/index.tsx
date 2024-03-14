@@ -10,7 +10,7 @@ export const FileInput: FC<Props> = ({ handleFileChange, file }) => (
       htmlFor="formFile"
       className="flex flex-col gap-2 text-darkBlue text-sm font-medium"
     >
-      <div className="flex gap-2 justify-center items-center text-darkBlue text-lg font-semibold cursor-pointer">
+      <div className="flex gap-2 justify-center items-center text-darkBlue md:text-lg font-semibold cursor-pointer">
         <FaRegIdBadge />
         Upload CV
       </div>

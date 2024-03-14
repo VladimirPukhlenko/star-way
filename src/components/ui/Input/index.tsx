@@ -8,7 +8,7 @@ export const Input: FC<Props> = ({ label, ...rest }) => (
   <div className="flex gap-2 px-2 py-1 border-2 border-myGray rounded-md">
     <label
       htmlFor={rest.id}
-      className="text-lg text-darkBlue font-semibold cursor-pointer"
+      className="md:text-lg text-darkBlue font-semibold cursor-pointer"
     >
       {label}:
     </label>

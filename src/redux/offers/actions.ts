@@ -1,18 +1,24 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Offer } from "../../types/offer.interface";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+type myRejectValue = { rejectValue: string };
 
 const API_URL =
   "http://deayloop.backend.test.starway.agency:8002/api/offers/all/";
 
-export const fetchOffers = createAsyncThunk("offer/fetchOffers", async () => {
-  try {
-    const response = await axios.get<Offer[]>(API_URL);
-    return response.data;
-  } catch (error) {
-    console.error("Error fetching offers:", error);
-    // I think in this case it's okay to simply propagate the error further because it will end up in the builder anyway,
-    // specifically in fetchOffers.rejected
-    throw error;
+export const fetchOffers = createAsyncThunk<Offer[], void, myRejectValue>(
+  "offer/fetchOffers",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get<Offer[]>(API_URL);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+      if (!axios.isAxiosError(error)) {
+        throw error;
+      }
+      const err: AxiosError = error;
+      return rejectWithValue(err.message);
+    }
   }
-});
+);

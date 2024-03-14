@@ -22,7 +22,7 @@ export const CategoryList = <T extends Category | MainCategory | SubCategory>({
   onHover,
 }: CategoryListProps<T>) => {
   return (
-    <div className="flex flex-col gap-2 w-1/4 ">
+    <div className="flex flex-col gap-2 md:w-1/3">
       {categories.map((category, index) => {
         const isActive = category === activeCategory;
         const isMainCategory = isMainCategoryWithIcon(category);
@@ -38,7 +38,9 @@ export const CategoryList = <T extends Category | MainCategory | SubCategory>({
               {isMainCategory && (category as MainCategory).icon}
               {category.title}
             </span>
-            <GrNext />
+            <span className="rotate-90 md:rotate-0">
+              <GrNext />
+            </span>
           </div>
         );
       })}
