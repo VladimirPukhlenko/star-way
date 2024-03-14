@@ -1,8 +1,4 @@
-import {
-  ActionReducerMapBuilder,
-  PayloadAction,
-  SerializedError,
-} from "@reduxjs/toolkit";
+import { ActionReducerMapBuilder, PayloadAction } from "@reduxjs/toolkit";
 
 import { fetchOffers } from "./actions";
 import { Offer } from "../../types/offer.interface";
@@ -12,19 +8,22 @@ export const getOffersReducer = (
   builder: ActionReducerMapBuilder<OffersInitialState>
 ) => {
   builder.addCase(fetchOffers.pending, (state) => {
+    state.offers = [];
     state.loading = true;
+    state.error = "";
   });
   builder.addCase(
     fetchOffers.fulfilled,
     (state, action: PayloadAction<Offer[]>) => {
-      state.loading = false;
       state.offers = action.payload;
+      state.loading = false;
+      state.error = "";
     }
   );
 
   builder.addCase(fetchOffers.rejected, (state, action) => {
-    state.loading = false;
     state.offers = [];
+    state.loading = false;
     state.error = action.payload || "An error occurred";
   });
 };
