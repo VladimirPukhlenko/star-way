@@ -8,6 +8,7 @@ export const ProfileMenu = () => {
     <div className="flex flex-col gap-2">
       {MENU_DATA.map((menuItem) => (
         <ProfileMenuItem
+          key={menuItem.id}
           menuItem={menuItem}
           isCurrent={menuItem.href === location.pathname}
         />

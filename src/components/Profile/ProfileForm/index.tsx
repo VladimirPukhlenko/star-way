@@ -1,23 +1,14 @@
-import { Form, Field, ErrorMessage, FormikProvider, useFormik } from "formik";
+import { Form, Field, ErrorMessage, FormikProvider } from "formik";
 
 import { FIELDS } from "./constants";
-
 import { useProfileForm } from "../../../hooks/useProfileForm";
 import { FileInput } from "../../../design-components/FileInput";
 import { Button } from "../../../design-components/Button";
 import { Input } from "../../../design-components/Input";
-import { validationSchema } from "./schema";
 
 export const ProfileForm = () => {
-  const {
-    file,
-    handleFileChange,
-    initialValues,
-    isSubmittedSuccessfully,
-    onSubmit,
-  } = useProfileForm();
-
-  const formik = useFormik({ initialValues, validationSchema, onSubmit });
+  const { formik, file, handleFileChange, isSubmittedSuccessfully } =
+    useProfileForm();
 
   return (
     <FormikProvider value={formik}>
