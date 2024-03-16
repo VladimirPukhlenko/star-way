@@ -1,6 +1,6 @@
 import { FaStar } from "react-icons/fa";
 
-export const ProfileBadge = () => (
+export const ProfileAvatar = () => (
   <div className="flex flex-col lg:flex-row items-center justify-start gap-2 xl:gap-10">
     <img
       src="/avatar.png"

@@ -1,17 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Offer } from "../../types/offer.interface";
+import { IOffer } from "../../types/offer";
 import { getOffersReducer } from "./reducer";
 
 export interface OffersInitialState {
   loading: boolean;
-  offers: Offer[];
-  error: string;
+  offers: IOffer[];
 }
 
 const initialState: OffersInitialState = {
   loading: false,
   offers: [],
-  error: "",
 };
 
 const offersSlice = createSlice({

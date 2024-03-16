@@ -2,25 +2,22 @@ import React, { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 import { DROPDOWN_MENU_MAIN_CATEGORIES } from "./constants";
-import {
-  Category,
-  MainCategory,
-  SubCategory,
-} from "../../types/categories.interface";
 import { CategoryList } from "./CategoryList";
-import { Button } from "../ui/Button";
+import { Button } from "../../design-components/Button";
+import { ICategory, IMainCategory, ISubCategory } from "../../types/categories";
+
 const SCROLL_THRESHOLD = 150;
 
 export const DropdownMenu: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const [activeMainCategory, setActiveMainCategory] = useState<MainCategory>(
+  const [activeMainCategory, setActiveMainCategory] = useState<IMainCategory>(
     DROPDOWN_MENU_MAIN_CATEGORIES[0]
   );
-  const [activeCategory, setActiveCategory] = useState<Category>(
+  const [activeCategory, setActiveCategory] = useState<ICategory>(
     activeMainCategory.categories[0]
   );
-  const [activeSubCategory, setActiveSubCategory] = useState<SubCategory>(
+  const [activeSubCategory, setActiveSubCategory] = useState<ISubCategory>(
     activeCategory.subCategories[0]
   );
 
@@ -47,23 +44,23 @@ export const DropdownMenu: React.FC = () => {
     setActiveCategory(activeMainCategory.categories[0]);
     setActiveSubCategory(activeCategory.subCategories[0]);
   };
-  const handleMainCategoryHover = (category: MainCategory) => {
+  const handleMainCategoryHover = (category: IMainCategory) => {
     setActiveMainCategory(category);
     setActiveCategory(category.categories[0]);
     setActiveSubCategory(category.categories[0].subCategories[0]);
   };
 
-  const handleCategoryHover = (category: Category) => {
+  const handleCategoryHover = (category: ICategory) => {
     setActiveCategory(category);
     setActiveSubCategory(category.subCategories[0]);
   };
-  const handleSubCategoryHover = (category: SubCategory) => {
+  const handleSubCategoryHover = (category: ISubCategory) => {
     setActiveSubCategory(category);
   };
 
   return (
     <div>
-      <Button colorType="secondary" onClick={toggleMenu}>
+      <Button variant="secondary" onClick={toggleMenu}>
         <div className="flex justify-center items-center gap-2">
           <RxHamburgerMenu />
           All Categories
@@ -75,26 +72,24 @@ export const DropdownMenu: React.FC = () => {
           onClick={toggleMenu}
         >
           <div
-            className="absolute z-20 top-[72px] left-0 border-b bg-white w-full cursor-default"
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
+            className="absolute z-20 top-18 left-0 border-b bg-white w-full cursor-default"
+            onClick={(e) => e.stopPropagation()}
           >
             <div className="container p-12">
               <div className="flex flex-col md:flex-row gap-4 md:gap-0 font-semibold">
-                <CategoryList<MainCategory>
+                <CategoryList<IMainCategory>
                   categories={DROPDOWN_MENU_MAIN_CATEGORIES}
                   activeCategory={activeMainCategory}
                   onHover={handleMainCategoryHover}
                 />
 
-                <CategoryList<Category>
+                <CategoryList<ICategory>
                   categories={activeMainCategory.categories}
                   activeCategory={activeCategory}
                   onHover={handleCategoryHover}
                 />
 
-                <CategoryList<SubCategory>
+                <CategoryList<ISubCategory>
                   categories={activeCategory.subCategories}
                   activeCategory={activeSubCategory}
                   onHover={handleSubCategoryHover}

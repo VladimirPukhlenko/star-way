@@ -1,8 +1,8 @@
-import { BreadcrumbNav } from "../components/BreadcrumbNav";
-
 import { Outlet } from "react-router-dom";
+
 import { ProfileMenu } from "../components/Profile/ProfileMenu";
-import { ProfileBadge } from "../components/Profile/ProfileBadge";
+import { ProfileAvatar } from "../components/Profile/ProfileAvatar";
+import { BreadcrumbNav } from "../components/BreadcrumbNav";
 
 export const Profile = () => (
   <div className="relative min-h-screenNoHeader flex items-center justify-center py-14">
@@ -12,7 +12,7 @@ export const Profile = () => (
       </div>
       <div className="flex flex-col md:flex-row items-center lg:items-start">
         <div className="w-full md:w-1/2 flex flex-col gap-5 p-5 py-14 ">
-          <ProfileBadge />
+          <ProfileAvatar />
           <ProfileMenu />
         </div>
         <div className="w-full">

@@ -4,7 +4,7 @@ import { FOOTER_LINKS } from "./constants";
 import { Logo } from "../Logo";
 
 export const Footer = () => (
-  <div className="h-footerHeight flex justify-center items-center bg-lightBlue text-xs md:text-sm font-semibold">
+  <div className="h-30 flex justify-center items-center bg-lightBlue text-xs md:text-sm font-semibold">
     <div className="container flex justify-between items-center gap-4">
       <Logo />
       <div className="flex flex-col-reverse gap-2 md:flex-row md:justify-around md:flex-1">

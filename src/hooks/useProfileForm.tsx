@@ -5,6 +5,12 @@ import { FormikHelpers } from "formik";
 
 type Values = Yup.InferType<typeof validationSchema>;
 
+const INITIAL_VALUES = {
+  fullName: "",
+  phone: "",
+  email: "",
+};
+
 export const useProfileForm = () => {
   const [file, setFile] = useState<File | null>(null);
 
@@ -24,18 +30,11 @@ export const useProfileForm = () => {
     actions.resetForm();
   };
 
-  const initialValues = {
-    fullName: "",
-    phone: "",
-    email: "",
-  };
-
   return {
     file,
     handleFileChange,
     onSubmit,
-    initialValues,
+    initialValues: INITIAL_VALUES,
     isSubmittedSuccessfully,
-    setIsSubmittedSuccessfully,
   };
 };

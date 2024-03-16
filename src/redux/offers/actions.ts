@@ -1,23 +1,22 @@
+import { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { Offer } from "../../types/offer.interface";
-import axios, { AxiosError } from "axios";
+
+import { IOffer } from "../../types/offer";
+import { axiosInstance } from "../../lib/axiosInstance";
+
 type myRejectValue = { rejectValue: string };
 
-const API_URL =
-  "http://deayloop.backend.test.starway.agency:8002/api/offers/all/";
+const URL = "/api/offers/all/";
 
-export const fetchOffers = createAsyncThunk<Offer[], void, myRejectValue>(
+export const fetchOffers = createAsyncThunk<IOffer[], void, myRejectValue>(
   "offer/fetchOffers",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get<Offer[]>(API_URL);
+      const response = await axiosInstance.get<IOffer[]>(URL);
       return response.data;
     } catch (error) {
       console.log(error);
-      if (!axios.isAxiosError(error)) {
-        throw error;
-      }
-      const err: AxiosError = error;
+      const err = error as AxiosError;
       return rejectWithValue(err.message);
     }
   }

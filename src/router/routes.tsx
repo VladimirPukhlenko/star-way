@@ -24,22 +24,16 @@ export const router = createBrowserRouter([
           },
           {
             path: "help",
-            element: (
-              <div className="text-2xl text-center py-10 flex-1">help</div>
-            ),
+            element: <div className="textLayout">help</div>,
           },
 
           {
             path: "favorites",
-            element: (
-              <div className="text-2xl text-center py-10 flex-1">favorites</div>
-            ),
+            element: <div className="textLayout">favorites</div>,
           },
           {
             path: "orders",
-            element: (
-              <div className="text-2xl text-center py-10 flex-1">orders</div>
-            ),
+            element: <div className="textLayout">orders</div>,
           },
         ],
       },

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 
 import { DropdownMenu } from "../DropdownMenu";
 import { Logo } from "../Logo";
-import { Button } from "../ui/Button";
+import { Button } from "../../design-components/Button";
 
 export const Header = () => (
-  <div className="h-headerHeight flex justify-center items-center bg-lightBlue text-xs md:text-sm">
+  <div className="h-18 flex justify-center items-center bg-lightBlue text-xs md:text-sm">
     <div className="container flex justify-between items-center">
       {/* logo with button */}
       <div className="flex justify-center items-center gap-4">
@@ -17,19 +17,19 @@ export const Header = () => (
       {/* favorites and auth button */}
       <div className="flex justify-center flex-col-reverse gap-1 md:flex-row md:gap-2 items-center text-xxs sm:text-sm">
         <div className="flex justify-center items-center md:gap-2">
-          <Button colorType="link">
+          <Button variant="link">
             <div className="flex items-center justify-center gap-2">
               <FaRegHeart className=" text-xs md:text-base" />
               Favorite
             </div>
           </Button>
-          <Button colorType="link">
+          <Button variant="link">
             <Link to={"/profile"}>Profile</Link>
           </Button>
         </div>
         <div className="flex justify-center items-center md:gap-2">
-          <Button colorType="boldLink">Log in</Button>
-          <Button colorType="primary">Sign Up</Button>
+          <Button variant="boldLink">Log in</Button>
+          <Button variant="primary">Sign Up</Button>
         </div>
       </div>
     </div>

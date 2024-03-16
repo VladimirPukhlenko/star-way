@@ -1,8 +1,9 @@
 import { ActionReducerMapBuilder, PayloadAction } from "@reduxjs/toolkit";
 
 import { fetchOffers } from "./actions";
-import { Offer } from "../../types/offer.interface";
+import { IOffer } from "../../types/offer";
 import { OffersInitialState } from "./slice";
+import toast from "react-hot-toast";
 
 export const getOffersReducer = (
   builder: ActionReducerMapBuilder<OffersInitialState>
@@ -10,20 +11,18 @@ export const getOffersReducer = (
   builder.addCase(fetchOffers.pending, (state) => {
     state.offers = [];
     state.loading = true;
-    state.error = "";
   });
   builder.addCase(
     fetchOffers.fulfilled,
-    (state, action: PayloadAction<Offer[]>) => {
+    (state, action: PayloadAction<IOffer[]>) => {
       state.offers = action.payload;
       state.loading = false;
-      state.error = "";
     }
   );
 
   builder.addCase(fetchOffers.rejected, (state, action) => {
     state.offers = [];
     state.loading = false;
-    state.error = action.payload || "An error occurred";
+    toast.error(action.payload || "An error occurred");
   });
 };

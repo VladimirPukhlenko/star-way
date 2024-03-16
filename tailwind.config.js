@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      inset: {
+        18: "72px",
+      },
       fontSize: {
         xxs: "0.6rem",
       },
@@ -10,8 +13,8 @@ export default {
         screenNoHeader: "calc(100vh - 72px)",
       },
       height: {
-        headerHeight: "72px",
-        footerHeight: "126px",
+        18: "72px",
+        30: "126px",
       },
       colors: {
         darkBlue: "#0D3450",
@@ -20,7 +23,7 @@ export default {
         gold: "#E6C83C",
       },
       fontFamily: {
-        Dancing: ["Raleway", "cursive"],
+        raleway: ["Raleway", "cursive"],
       },
       container: {
         center: true,
