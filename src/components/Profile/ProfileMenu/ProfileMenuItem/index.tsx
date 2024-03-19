@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import cn from "classnames";
-import { MENU_DATA } from "../constants";
+
 import { FC } from "react";
+import { MENU_DATA } from "../../constants";
 
 type Props = {
   menuItem: (typeof MENU_DATA)[0];

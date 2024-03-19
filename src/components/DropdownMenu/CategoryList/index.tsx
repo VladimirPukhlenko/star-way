@@ -1,5 +1,5 @@
 import { CategoryUnion } from "../../../types/categories";
-import { CategoryOption } from "../CategoryListOption";
+import { CategoryListOption } from "../CategoryListOption";
 
 export interface CategoryListProps<T> {
   categories: T[];
@@ -14,7 +14,7 @@ export const CategoryList = <T extends CategoryUnion>({
 }: CategoryListProps<T>) => (
   <div className="flex flex-col gap-2 md:w-1/3">
     {categories.map((category) => (
-      <CategoryOption<T>
+      <CategoryListOption<T>
         key={category.id}
         category={category}
         activeCategory={activeCategory}

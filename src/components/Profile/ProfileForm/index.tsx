@@ -1,14 +1,13 @@
 import { Form, Field, ErrorMessage, FormikProvider } from "formik";
 
-import { FIELDS } from "./constants";
+import { FIELDS } from "../constants";
 import { useProfileForm } from "../../../hooks/useProfileForm";
 import { FileInput } from "../../../design-components/FileInput";
 import { Button } from "../../../design-components/Button";
 import { Input } from "../../../design-components/Input";
 
 export const ProfileForm = () => {
-  const { formik, file, handleFileChange, isSubmittedSuccessfully } =
-    useProfileForm();
+  const { formik, file, handleFileChange } = useProfileForm();
 
   return (
     <FormikProvider value={formik}>
@@ -43,10 +42,6 @@ export const ProfileForm = () => {
             {/*  {(touched.fullName && errors.fullName) ||
                   (touched.phone && errors.phone) ||
                   (touched.email && errors.email)} */}
-            <div className="text-green-500">
-              {isSubmittedSuccessfully &&
-                "Form has been successfully submitted"}
-            </div>
           </div>
         </div>
       </Form>

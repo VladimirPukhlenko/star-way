@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
-import { MENU_DATA } from "./constants";
+
 import { ProfileMenuItem } from "./ProfileMenuItem";
+import { MENU_DATA } from "../constants";
 
 export const ProfileMenu = () => {
   const location = useLocation();

@@ -24,8 +24,8 @@ export const DropdownMenu: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > SCROLL_THRESHOLD) {
-        setIsOpen(false);
         setDefaultValues();
+        setIsOpen(false);
       }
     };
     window.addEventListener("scroll", handleScroll);
