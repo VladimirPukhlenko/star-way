@@ -15,9 +15,8 @@ export const CategoryListOption = <T extends CategoryUnion>({
   onHover,
 }: CategoryOptionProps<T>) => {
   // not sure if this is what you meant
-  const handleHover = () => {
-    onHover(category);
-  };
+  const onMouseEnter = () => onHover(category);
+
   return (
     <div
       className={cn(
@@ -26,7 +25,7 @@ export const CategoryListOption = <T extends CategoryUnion>({
           "bg-lightBlue": category === activeCategory, // isActive
         }
       )}
-      onMouseEnter={handleHover}
+      onMouseEnter={onMouseEnter}
       // onMouseEnter={() => onHover(category)} // previous option
     >
       <span className="flex items-center gap-4">
