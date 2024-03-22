@@ -1,5 +1,5 @@
 // Function to join location data with specified separator
-const joiner = (locData: string, separator: string = "-") => {
+const formatLocationString = (locData: string, separator: string = "-") => {
   let path = "";
 
   // Splitting the location data into an array based on the separator
@@ -28,7 +28,7 @@ export const getLocationPaths = (pathname: string, separator: string = "-") => {
   // Mapping each location data to an object containing title, path, and isActive properties
   return locationArr.map((locData) => ({
     // Getting the title by calling the joiner function
-    title: joiner(locData, separator),
+    title: formatLocationString(locData, separator),
     // Keeping the original path
     path: locData,
     // Checking if the current location data matches the last part of the pathname
