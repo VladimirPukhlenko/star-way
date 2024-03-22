@@ -1,7 +1,7 @@
 import cn from "classnames";
 import { GrNext } from "react-icons/gr";
 
-import { CategoryUnion } from "../../../types/categories";
+import { CategoryUnion } from "src/@types/categories";
 
 export interface CategoryOptionProps<T> {
   category: T;
@@ -14,7 +14,6 @@ export const CategoryListOption = <T extends CategoryUnion>({
   activeCategory,
   onHover,
 }: CategoryOptionProps<T>) => {
-  // not sure if this is what you meant
   const onMouseEnter = () => onHover(category);
 
   return (
@@ -26,7 +25,6 @@ export const CategoryListOption = <T extends CategoryUnion>({
         }
       )}
       onMouseEnter={onMouseEnter}
-      // onMouseEnter={() => onHover(category)} // previous option
     >
       <span className="flex items-center gap-4">
         {category.icon}

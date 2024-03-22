@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import { IMAGES_DATA } from "./constants";
 
 export const Banners = () => (

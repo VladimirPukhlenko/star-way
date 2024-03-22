@@ -1,10 +1,10 @@
 import { Form, Field, ErrorMessage, FormikProvider } from "formik";
 
 import { FIELDS } from "../constants";
-import { useProfileForm } from "../../../hooks/useProfileForm";
-import { FileInput } from "../../../design-components/FileInput";
-import { Button } from "../../../design-components/Button";
-import { Input } from "../../../design-components/Input";
+import { useProfileForm } from "src/hooks/useProfileForm";
+import { FileInput } from "src/design-components/FileInput";
+import { Button } from "src/design-components/Button";
+import { Input } from "src/design-components/Input";
 
 export const ProfileForm = () => {
   const { formik, file, handleFileChange } = useProfileForm();

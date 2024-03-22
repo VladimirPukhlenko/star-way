@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { validationSchema } from "../components/Profile/ProfileForm/schema";
 import * as Yup from "yup";
-import { FormikHelpers, useFormik } from "formik";
+import { useState } from "react";
 import toast from "react-hot-toast";
+import { FormikHelpers, useFormik } from "formik";
+
+import { validationSchema } from "../components/Profile/ProfileForm/schema";
 
 type Values = Yup.InferType<typeof validationSchema>;
 

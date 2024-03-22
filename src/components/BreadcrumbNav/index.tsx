@@ -2,11 +2,11 @@ import { GrPrevious } from "react-icons/gr";
 import cn from "classnames";
 import { Link, useLocation } from "react-router-dom";
 
-import { getLocationPaths } from "../../utils/getLocationPaths";
+import { getLocationPaths } from "src/utils/getLocationPaths";
+import { PATHNAMES } from "src/constants/routes";
 
 export const BreadcrumbNav = () => {
   const location = useLocation();
-
   // getLocationPaths accepts a URL and returns an array of objects representing each segment of the URL
   const locationPaths = getLocationPaths(location.pathname);
 
@@ -25,19 +25,19 @@ export const BreadcrumbNav = () => {
         <GrPrevious />
         Previous Page
       </Link>
-      {<Link to="/">Home</Link>}
+      <Link to={PATHNAMES.HOME}>Home</Link>
 
-      {locationPaths.map((loc) => (
+      {locationPaths.map(({ path, isActive, title }) => (
         <Link
-          to={loc.path}
-          key={loc.path}
+          to={path}
+          key={path}
           className={cn("flex justify-center items-center gap-2", {
-            "font-semibold": loc.isActive,
+            "font-semibold": isActive,
           })}
         >
           {/* Dot */}
-          <div className="w-1 aspect-square bg-darkBlue rounded-full"></div>
-          {loc.title}
+          <span className="w-1 aspect-square bg-darkBlue rounded-full"></span>
+          {title}
         </Link>
       ))}
     </div>

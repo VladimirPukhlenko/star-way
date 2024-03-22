@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IOffer } from "../../types/offer";
+import { IOffer } from "src/@types/offer";
 import { getOffersReducer } from "./reducer";
 
 export interface OffersInitialState {

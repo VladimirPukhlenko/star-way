@@ -3,8 +3,8 @@ import { RxHamburgerMenu } from "react-icons/rx";
 
 import { DROPDOWN_MENU_MAIN_CATEGORIES } from "./constants";
 import { CategoryList } from "./CategoryList";
-import { Button } from "../../design-components/Button";
-import { ICategory, IMainCategory, ISubCategory } from "../../types/categories";
+import { Button } from "src/design-components/Button";
+import { ICategory, IMainCategory, ISubCategory } from "src/@types/categories";
 
 const SCROLL_THRESHOLD = 150;
 
@@ -30,20 +30,20 @@ export const DropdownMenu: React.FC = () => {
     };
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
     setDefaultValues();
   };
+
   const setDefaultValues = () => {
     setActiveMainCategory(DROPDOWN_MENU_MAIN_CATEGORIES[0]);
     setActiveCategory(activeMainCategory.categories[0]);
     setActiveSubCategory(activeCategory.subCategories[0]);
   };
+
   const handleMainCategoryHover = (category: IMainCategory) => {
     setActiveMainCategory(category);
     setActiveCategory(category.categories[0]);
@@ -54,6 +54,7 @@ export const DropdownMenu: React.FC = () => {
     setActiveCategory(category);
     setActiveSubCategory(category.subCategories[0]);
   };
+
   const handleSubCategoryHover = (category: ISubCategory) => {
     setActiveSubCategory(category);
   };

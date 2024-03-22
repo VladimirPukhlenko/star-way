@@ -4,35 +4,36 @@ import { Home } from "../pages/Home";
 import { Profile } from "../pages/Profile";
 import { Layout } from "../Layout";
 import { ProfileForm } from "../components/Profile/ProfileForm";
+import { PATHNAMES } from "src/constants/routes";
 
 export const router = createBrowserRouter([
   {
-    path: "",
+    path: PATHNAMES.HOME,
     element: <Layout />,
     children: [
       {
-        path: "",
+        path: PATHNAMES.HOME,
         element: <Home />,
       },
       {
-        path: "",
+        path: PATHNAMES.HOME,
         element: <Profile />,
         children: [
           {
-            path: "profile",
+            path: PATHNAMES.PROFILE,
             element: <ProfileForm />,
           },
           {
-            path: "help",
+            path: PATHNAMES.HELP,
             element: <div className="textLayout">help</div>,
           },
 
           {
-            path: "favorites",
+            path: PATHNAMES.FAVORITES,
             element: <div className="textLayout">favorites</div>,
           },
           {
-            path: "orders",
+            path: PATHNAMES.ORDERS,
             element: <div className="textLayout">orders</div>,
           },
         ],
@@ -41,7 +42,7 @@ export const router = createBrowserRouter([
   },
 
   {
-    path: "*",
-    element: <Navigate to="/" />,
+    path: PATHNAMES.UNKNOWN,
+    element: <Navigate to={PATHNAMES.HOME} />,
   },
 ]);

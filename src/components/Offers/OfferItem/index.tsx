@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IOffer } from "../../../types/offer";
+import { IOffer } from "src/@types/offer";
 import cn from "classnames";
 import { OfferImage } from "./OfferImage";
 import { OfferInfo } from "./OfferInfo";
@@ -16,7 +16,7 @@ export const OfferItem: FC<Props> = ({
   description,
 }) => (
   <Link
-    to={"#"}
+    to="#"
     className={cn(
       "flex border border-myGray rounded-md overflow-hidden text-xs sm:text-sm",
       isRow ? "flex-col" : "flex-row justify-center items-center"

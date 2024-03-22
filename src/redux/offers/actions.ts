@@ -1,8 +1,8 @@
 import { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import { IOffer } from "../../types/offer";
-import { axiosInstance } from "../../lib/axiosInstance";
+import { IOffer } from "src/@types/offer";
+import { instance } from "src/services/api-client.ts";
 
 type myRejectValue = { rejectValue: string };
 
@@ -12,7 +12,7 @@ export const fetchOffers = createAsyncThunk<IOffer[], void, myRejectValue>(
   "offer/fetchOffers",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axiosInstance.get<IOffer[]>(URL);
+      const response = await instance.get<IOffer[]>(URL);
       return response.data;
     } catch (error) {
       console.log(error);

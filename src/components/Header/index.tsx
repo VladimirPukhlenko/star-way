@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 import { DropdownMenu } from "../DropdownMenu";
 import { Logo } from "../Logo";
-import { Button } from "../../design-components/Button";
+import { Button } from "src/design-components/Button";
+import { PATHNAMES } from "src/constants/routes";
 
 export const Header = () => (
   <div className="h-18 flex justify-center items-center bg-lightBlue text-xs md:text-sm">
@@ -19,12 +20,12 @@ export const Header = () => (
         <div className="flex justify-center items-center md:gap-2">
           <Button variant="link">
             <div className="flex items-center justify-center gap-2">
-              <FaRegHeart className=" text-xs md:text-base" />
+              <FaRegHeart className="text-xs md:text-base" />
               Favorite
             </div>
           </Button>
           <Button variant="link">
-            <Link to={"/profile"}>Profile</Link>
+            <Link to={PATHNAMES.PROFILE}>Profile</Link>
           </Button>
         </div>
         <div className="flex justify-center items-center md:gap-2">

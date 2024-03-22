@@ -1,7 +1,7 @@
 import { FaCogs, FaShoppingCart } from "react-icons/fa";
 import { FaHouse } from "react-icons/fa6";
 import { IoDocumentTextSharp } from "react-icons/io5";
-import { IMainCategory } from "../../types/categories";
+import { IMainCategory } from "src/@types/categories";
 
 export const DROPDOWN_MENU_MAIN_CATEGORIES: IMainCategory[] = [
   {

@@ -1,6 +1,8 @@
-import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
-import { IOffer } from "../../../../types/offer";
 import { FC, useState } from "react";
+import { FaHeart, FaRegHeart, FaStar } from "react-icons/fa";
+
+import { IOffer } from "src/@types/offer";
+
 type Props = {
   category: IOffer["category"];
   title: IOffer["title"];
@@ -15,10 +17,12 @@ export const OfferInfo: FC<Props> = ({
   tags,
 }) => {
   const [isLiked, setIsLiked] = useState(false);
+
   const toggleLike = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     setIsLiked((prev) => !prev);
   };
+
   return (
     <div className="flex flex-col gap-1 flex-1 p-1 sm:p-4">
       <div className="flex justify-between items-center">
@@ -39,7 +43,7 @@ export const OfferInfo: FC<Props> = ({
           {tags.map((tag, i) => (
             <span
               key={i}
-              className="text-xxs px-1 py-[2px] bg-myGray text-center rounded-md"
+              className="text-xxs px-1 p-0.5 bg-myGray text-center rounded-md"
             >
               {tag}
             </span>

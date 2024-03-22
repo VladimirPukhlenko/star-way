@@ -1,4 +1,4 @@
-import { CategoryUnion } from "../../../types/categories";
+import { CategoryUnion } from "src/@types/categories";
 import { CategoryListOption } from "../CategoryListOption";
 
 export interface CategoryListProps<T> {

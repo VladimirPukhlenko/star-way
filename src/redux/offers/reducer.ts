@@ -1,7 +1,7 @@
 import { ActionReducerMapBuilder, PayloadAction } from "@reduxjs/toolkit";
 
 import { fetchOffers } from "./actions";
-import { IOffer } from "../../types/offer";
+import { IOffer } from "src/@types/offer";
 import { OffersInitialState } from "./slice";
 import toast from "react-hot-toast";
 
